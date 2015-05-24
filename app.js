@@ -33,7 +33,7 @@ var Book = React.createClass({
         title: React.PropTypes.string.isRequired
     },
    render: function(){
-        return <div>
+        return <div className="answer">
                     <h4>
                         {this.props.title}
                     </h4>
