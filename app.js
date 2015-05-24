@@ -2,14 +2,28 @@
 'use strict';
 var Quiz = React.createClass({
     propTypes: {
-      books: React.PropTypes.array.isRequired
+      data: React.PropTypes.array.isRequired
+    },
+    getInitialState: function (){
+        return {
+            author: this.props.data[0],
+            books: this.props.data[0].books
+        };
     },
     render: function() {
-        console.log('rendering');
         return <div>
-            {this.props.books.map(function(b){
-                return <Book title={b} />;
-            })}
+            <div className="row">
+                <div className="col-md-4">
+                    <img src={this.state.author.imageUrl} className="authorImage" col-md-3 />
+                </div>
+                <div className="col-md-7">
+                    {this.state.books.map(function(b){
+                        return <Book title={b} />;
+                    }, this)}
+                </div>
+                <div className="col-md-1">
+                </div>
+            </div>
         </div>;
 }});
 
@@ -66,6 +80,6 @@ var data = [
     }
 ];
 
-React.render(<Quiz books={['The Lord of the Rings', 'The Iliad']} />,
+React.render(<Quiz data={data} />,
     document.getElementById('app'));
 
