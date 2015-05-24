@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div id="container"></div>
+
+		<script type="text/javascript" src="react-dev.js"></script>
+		<script type="text/javascript" src="JSXTransformer.js"></script>
+		<script type="text/jsx">
+
+			/** @jsx React.DOM */
+			var Hello = React.createClass({
+				render: function(){
+					return <div><h1> Hello at {this.props.now}</h1>
+					</div>;
+				}
+			});
+
+			React.render(<Hello now={new Date().toString()} />,
+				document.getElementById('container')
+				);
+		</script>
+	</body>
+</html>
